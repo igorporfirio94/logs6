@@ -47,7 +47,7 @@ docker run -itd \
   ```
   Alterar as linhas no arquivo config.php:
   $token = 'senha_de_acesso';
-    ```
+  ```
   cd /var/www/html/logs6
   nano config.php
   ```

@@ -12,6 +12,12 @@ docker run -itd \
   --privileged \
   --name log6 \
   --hostname log6 \
+  -p 8010:80 \
+  --restart=always \
+  -v logs6_data:/data \
+  -l traefik.frontend.rule=Host:logs6.brasil-ip.net \
+  -l traefik.port=80 \ 
+  --network web \
   log6:latest
   ```
   

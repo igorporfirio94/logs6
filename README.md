@@ -10,8 +10,8 @@ docker build -t log6:latest .
 ```
 docker run -itd \
   --privileged \
-  --name log6 \
-  --hostname log6 \
+  --name logs6 \
+  --hostname logs6 \
   -p 8010:80 \
   --restart=always \
   -v logs6_data:/data \

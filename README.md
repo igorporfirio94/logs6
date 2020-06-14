@@ -25,7 +25,7 @@ docker run -itd \
   Após container em execução acessar o BASH para iniciar os serviços editar os arquivos de configurações e o banco de dados.
   
   ```
-  docker exec -it log6 /bin/bash
+  docker exec -it logs6 /bin/bash
   ```
   Serviços a serem iniciados:
   ```

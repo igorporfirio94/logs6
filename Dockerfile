@@ -7,7 +7,7 @@ RUN apt update && \
     apt -y upgrade && \
     apt install -y unzip apache2 apache2-utils libapache2-mod-php php php-mysql \
     php-cli php-pear php-gmp php-gd php-bcmath php-mbstring php-curl php-xml \
-    php-zip wget mariadb-server mariadb-client && \
+    php-zip wget mariadb-server mariadb-client nano && \
     apt clean all
 
 RUN a2enmod rewrite
@@ -27,13 +27,10 @@ RUN a2enconf phpmyadmin
 
 ADD config.inc.php /usr/share/phpmyadmin/config.inc.php
 
-RUN cd /var/www/html 
-    
-RUN wget https://github.com/remontti/LogIPv6RouterOS/archive/master.zip \
-    unzip master.zip \
-    mv LogIPv6RouterOS-master logs6 \
-    cd logs6
+RUN cd /var/www/html && wget https://github.com/remontti/LogIPv6RouterOS/archive/master.zip &&\
+    unzip master.zip &&\
+    mv LogIPv6RouterOS-master logs6
 
-EXPOSE 8080 
+EXPOSE 80
 
 CMD ["/bin/bash"]

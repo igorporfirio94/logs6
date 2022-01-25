@@ -30,6 +30,16 @@ ADD config.inc.php /usr/share/phpmyadmin/config.inc.php
 RUN cd /var/www/html && wget https://github.com/remontti/LogIPv6RouterOS/archive/master.zip &&\
     unzip master.zip &&\
     mv LogIPv6RouterOS-master logs6
+    
+RUN /etc/init.d/apache2 start && \ 
+    /etc/init.d/mysql start
+    
+RUN mariadb -p && \
+    CREATE DATABASE logs6; && \
+    GRANT ALL PRIVILEGES ON logs6.* TO 'logs6'@'localhost' IDENTIFIED BY '@CmrapTHL841P3162'; \
+    FLUSH PRIVILEGES;
+    quit;
+    
 
 EXPOSE 80,3306
 

@@ -31,6 +31,6 @@ RUN cd /var/www/html && wget https://github.com/remontti/LogIPv6RouterOS/archive
     unzip master.zip &&\
     mv LogIPv6RouterOS-master logs6
 
-EXPOSE 80
+EXPOSE 80,3306
 
 CMD ["/bin/bash"]
